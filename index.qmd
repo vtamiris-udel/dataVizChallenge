@@ -3,7 +3,6 @@ title: "Object-Oriented Matplotlib Challenge"
 subtitle: "Mastering the Four Stages of Data Visualization"
 format:
   html: default
-  pdf: default
 execute:
   echo: true
   eval: true
@@ -12,42 +11,11 @@ execute:
 # 🎯 Object-Oriented Matplotlib Challenge - The Four Stages of Data Visualization
 
 ::: {.callout-important}
-## 📊 Challenge Requirements In Section [Student Analysis Section](#student-analysis-section)
+## 📊 Challenge Requirements
 - Complete all discussion questions for the four stages of visualization
 - Create professional visualizations using object-oriented matplotlib
 - Demonstrate mastery of the Grammar of Graphics
-:::
-
-::: {.callout-important}
-## 🎯 Note on Python Usage
-
-**Recommended Workflow: Use Your Existing Virtual Environment**
-If you completed the Tech Setup Challenge Part 2, you already have a virtual environment set up! Here's how to use it for this new challenge:
-
-1. **Clone this new challenge repository** (see Getting Started section below)
-2. **Open the cloned repository in Cursor**
-3. **Set this project to use your existing Python interpreter:**
-   - Press `Ctrl+Shift+P` → "Python: Select Interpreter"
-   - Navigate to and choose the interpreter from your existing virtual environment (e.g., `your-previous-project/venv/Scripts/python.exe`)
-   - Restart any terminal sessions that are open to activate the new interpreter.
-4. **Install additional packages if needed:** `pip install pandas numpy matplotlib seaborn`
-
-::: {.callout-warning}
-## ⚠️ Cloud Storage Warning
-
-**Avoid using Google Drive, OneDrive, or other cloud storage for Python projects!** These services can cause issues with:
-- Package installations failing due to file locking
-- Virtual environment corruption
-- Slow performance during pip operations
-
-**Best practice:** Keep your Python projects in a local folder like `C:\Users\YourName\Documents\` or `~/Documents/` instead of cloud-synced folders.
-:::
-
-**Alternative: Create a New Virtual Environment**
-If you prefer a fresh environment, follow the Quarto documentation: [https://quarto.org/docs/projects/virtual-environments.html](https://quarto.org/docs/projects/virtual-environments.html). Be sure to follow the instructions to activate the environment, set it up as your default Python interpreter for the project, and install the necessary packages (e.g. pandas) for this challenge.  For installing the packages, you can use the `pip install -r requirements.txt` command since you already have the requirements.txt file in your project.   Some steps do take a bit of time, so be patient.
-
-**Why This Works:** Virtual environments are portable - you can use the same environment across multiple projects, and Cursor automatically activates it when you select the interpreter!
-
+- See [Student Analysis Section](#student-analysis-section) for detailed requirements
 :::
 
 ## The Problem: Mastering Object-Oriented Matplotlib Through the Four Stages
@@ -204,7 +172,7 @@ Let's explore different visual approaches:
 avgDF_2010_sorted = avgDF_2010.sort_values('totalRuns', ascending=True)
 
 # Create figure with subplots to compare approaches
-fig, axes = plt.subplots(2, 2, figsize=(12, 10))
+fig, axes = plt.subplots(2, 2, figsize=(8, 6))
 
 # Approach 1: Scatter plot (not ideal for categorical data)
 axes[0,0].scatter(avgDF_2010_sorted.home, avgDF_2010_sorted.totalRuns)
@@ -264,10 +232,10 @@ Let's create a publication-ready visualization:
 # Create a professional, publication-ready visualization
 
 # Set style for professional appearance
-plt.style.use("seaborn-whitegrid")
+plt.style.use("seaborn-v0_8-whitegrid")
 
 # Create the main visualization
-fig, ax = plt.subplots(figsize=(10, 8))
+fig, ax = plt.subplots(figsize=(8, 6))
 
 # Create color array for highlighting Colorado
 colorado_colors = ["darkorchid" if stadium == "COL" else "lightgrey" 
@@ -317,7 +285,7 @@ print(f"Colorado is {((colorado_runs / avgDF_2010_sorted.totalRuns.mean()) - 1) 
 
 **Question 1: Professional Formatting**
 - What elements make this visualization suitable for a business presentation?
-- How does the color scheme and layout guide the viewer's attention?
+- Is the annotation on the visualization helpful?  Can you fix its placement?
 
 :::
 
@@ -342,7 +310,7 @@ comparison_data = pd.merge(
     on='home', how='inner'
 )
 
-## TODO:Create the visualization
+## TODO: Create the visualization
 
 ```
 
@@ -393,15 +361,22 @@ comparison_data = pd.merge(
 - Fork it to your GitHub account, then clone it from your GitHub account to your local machine
 
 **Step 2:** Set up your Python environment
-- Follow the Python setup instructions above (use your existing venv from Tech Setup Challenge Part 2)
-- Make sure your virtual environment is activated and the Python interpreter is set
+- **Recommended:** Use your existing virtual environment from Tech Setup Challenge Part 2
+  - Press `Ctrl+Shift+P` → "Python: Select Interpreter"
+  - Navigate to your existing virtual environment (e.g., `your-previous-project/venv/Scripts/python.exe`)
+  - Install additional packages: `pip install pandas numpy matplotlib seaborn`
+- **Alternative:** Create a new virtual environment following [Quarto documentation](https://quarto.org/docs/projects/virtual-environments.html)
 
 **Step 3:** You're ready to start! The data loading code and starter code for the visualizations are already provided in this file.
 
 **Note:** This challenge uses the same `index.qmd` file you're reading right now - you'll edit it to complete your analysis.
 :::
 
-### Getting Started Tips
+::: {.callout-warning}
+## ⚠️ Cloud Storage Warning
+
+**Avoid using Google Drive, OneDrive, or other cloud storage for Python projects!** These services can cause issues with package installations and virtual environment corruption. Keep your Python projects in a local folder like `C:\Users\YourName\Documents\` instead.
+:::
 
 ::: {.callout-note}
 ## 🎯 Object-Oriented Matplotlib Philosophy
@@ -415,14 +390,12 @@ comparison_data = pd.merge(
 **Before you start:** Make sure to commit your work often using the Source Control panel in Cursor (Ctrl+Shift+G or Cmd+Shift+G). This prevents the AI from overwriting your progress and ensures you don't lose your work.
 
 **Commit after each major step:**
-
 - After completing each stage section
 - After adding your visualizations
 - After completing your advanced object-oriented techniques
 - Before asking the AI for help with new code
 
 **How to commit:**
-
 1. Open Source Control panel (Ctrl+Shift+G)
 2. Stage your changes (+ button)
 3. Write a descriptive commit message
